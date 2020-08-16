@@ -1,5 +1,5 @@
 $(document).on('pagecreate', function (evt,data) {
-
+ 
     var serv = 'https://sis-ma.in/php/recl.php';
     
     var did = app.GetDeviceId();
@@ -15,6 +15,9 @@ $(document).on('pagecreate', function (evt,data) {
     var err_us = 'Por favor indiche a unidade de saúde (US).';
 
     $('#div_grava_cadastro').html( app.LoadText( 'cadastro', '' ) );
+    $('#div_grava_urgencia').html( app.LoadText( 'urgencia', '' ) );
+    $('#div_grava_satisfacao').html( app.LoadText( 'satisfacao', '' ) );
+    $('#div_grava_servico').html( app.LoadText( 'servico', '' ) );
 
     $('#a_urgencia').click(function(){
         if ( ! app.LoadBoolean( 'cadastro_ok', false ) ) {app.Alert(err_cadastro); return false;}
@@ -81,7 +84,19 @@ $(document).on('pagecreate', function (evt,data) {
     });
 
     $('#bu_grava_us').click(function() {
-
+		var vals = [];
+        var n_prov = $('#sel_prov').find(":selected").attr('id');
+        var nomeus = $('#inp_nomeus').val();
+        if (nomeus.length < 5) {app.Alert(err_us); return false;}
+        vals.push( n_prov );
+        vals.push( $('#sel_prov').find(":selected").text() );
+        vals.push( $('#prov_'+n_prov).find(":selected").attr('id') );
+        vals.push( $('#prov_'+n_prov).find(":selected").text() );
+        vals.push( nomeus );
+		var str_to_send = '{us=['+vals.join(',')+']}';
+        $('#div_grava_us').html( str_to_send );
+        app.SaveText('us',str_to_send);
+        app.SaveBoolean('us_ok', true);
     });
 
     $('#bu_grava_urgencia').click(function() {
@@ -94,6 +109,7 @@ $(document).on('pagecreate', function (evt,data) {
 		var txt_urgencia = $('#urgencia_25_t').val();
 		var str_to_send = '{urgencia=['+vals.join(',')+','+txt_urgencia+']}';
         $('#div_grava_urgencia').html( str_to_send );
+        app.SaveText('urgencia',str_to_send);
     });
     
     $('#bu_grava_satisfacao').click(function() {
@@ -106,6 +122,7 @@ $(document).on('pagecreate', function (evt,data) {
 		var txt_satisfacao = $('#satisfacao_25_t').val();
 		var str_to_send = '{satisfacao=['+vals.join(',')+','+txt_satisfacao+']}';
         $('#div_grava_satisfacao').html( str_to_send );
+        app.SaveText('satisfacao',str_to_send);
     });
 
     $('#bu_grava_servico').click(function() {
@@ -118,6 +135,7 @@ $(document).on('pagecreate', function (evt,data) {
 		var txt_servico = $('#servico_25_t').val();
 		var str_to_send = '{servico=['+vals.join(',')+','+txt_servico+']}';
         $('#div_grava_servico').html( str_to_send );
+        app.SaveText('servico',str_to_send);
     });
     
     
