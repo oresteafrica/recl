@@ -1,0 +1,1965 @@
+<html lang = "pt">
+<head>
+    <title>Reclamações</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta charset="utf-8">
+	<meta http-equiv = "content-language" content = "pt">
+    <script src="file:///android_asset/app.js"></script>
+
+<!-- ------------------ ini production ------------------
+    <script src="Misc/jquery-3.5.1.min.js"></script>
+	<script src="Misc/jquery-migrate-3.1.0.min.js"></script>
+    <script src="Misc/jquery.mobile-1.4.5.min.js"></script>    
+------------------ end production ------------------ -->
+
+<!-- ------------------ ini debug ------------------ -->
+    <script src="Misc/jquery-3.5.1.js"></script>
+	<script src="Misc/jquery-migrate-3.1.0.js"></script>
+    <script src="Misc/jquery.mobile-1.4.5.js"></script>
+<!-- ------------------ end debug ------------------ -->
+
+    <script src="recl.js"></script>
+
+<!-- ------------------ ini production ------------------
+    <link rel="stylesheet" type="text/css" href="Misc/jquery.mobile-1.4.5.min.css" />
+------------------ end production ------------------ -->
+
+<!-- ------------------ ini debug ------------------ -->
+    <link rel="stylesheet" type="text/css" href="Misc/jquery.mobile-1.4.5.css" />
+<!-- ------------------ end debug ------------------ -->
+
+    <link rel="stylesheet" type="text/css" href="recl.css" />
+
+</head>
+<body>
+<!-- ------------------ page 01 ------------------ -->
+<div id="page01" data-role="page">
+	<div data-role="header">
+		App MISAU Reclamações
+	</div>
+	<div role="main" class="ui-content">
+	    <div>
+            <img id="logo" src="Img/moz_emblema.jpg" alt="recl logo" />
+            <p>
+                Caro utente, este inquérito contem perguntas que nos ajudaram a melhorar os serviços desta instituição. Este inquérito, cujo preenchimento agradecemos, é estritamente confidencial e ajuda a esclarecer o sentido da mudança. A sua opinião é essencial para a compreensão das suas necessidades.
+            </p>
+        </div>
+	</div>
+	<div data-role="footer">
+        <a href="#page02" class="ui-btn" data-transition="flip">US</a>
+        <a href="#page03" id="a_urgencia" class="ui-btn" data-transition="flip">Urgência</a>
+        <a href="#page04" id="a_satisfacao" class="ui-btn" data-transition="flip">Satisfação</a>
+        <a href="#page05" id="a_servico" class="ui-btn" data-transition="flip">Serviço</a>
+        <a href="#page06" class="ui-btn" data-transition="flip">Cadastro</a>
+        <a href="#page07" class="ui-btn" data-transition="flip">Instruções</a>
+        <a href="#page08" id="bu_debug" class="ui-btn" data-transition="flip">Contacto</a>
+	</div>
+</div>
+<!-- ------------------ page 02 ------------------ -->
+<div id="page02" data-role="page">
+	<div data-role="header">
+		Escolha da unidade de saúde
+	</div>
+	<div role="main" class="ui-content">
+	
+        <label for="sel_area">Escolhe a província</label>
+        <select id="sel_prov">
+            <option id="2">Niassa</option>
+            <option id="3">Cabo Delgado</option>
+            <option id="4">Nampula</option>
+            <option id="5">Tete</option>
+            <option id="6">Zambezia</option>
+            <option id="7">Manica</option>
+            <option id="8">Sofala</option>
+            <option id="9">Gaza</option>
+            <option id="10">Inhambane</option>
+            <option id="11">Maputo Cidade</option>
+            <option id="12">Maputo</option>
+        </select>
+        
+        <label>Escolhe o distrito</label>
+        <div class="sel_dist" id="divprov_2">
+            <select id="prov_2">
+                <option id="13">Chimbonila</option>
+                <option id="14">Cuamba</option>
+                <option id="15">Lago</option>
+                <option id="16">Lichinga</option>
+                <option id="17">Majune</option>
+                <option id="18">Mandimba</option>
+                <option id="19">Marrupa</option>
+                <option id="20">Maúa</option>
+                <option id="21">Mavago</option>
+                <option id="22">Mecanhelas</option>
+                <option id="23">Mecula</option>
+                <option id="24">Metarica</option>
+                <option id="25">Muembe</option>
+                <option id="26">N"gaúma</option>
+                <option id="27">Nipepe</option>
+                <option id="28">Sanga</option>
+            </select>
+        </div>
+        <div class="sel_dist" id="divprov_3">
+            <select id="prov_3">
+                <option id="29">Ancuabe</option>
+                <option id="30">Balama</option>
+                <option id="31">Chiúre</option>
+                <option id="32">Ibo</option>
+                <option id="33">Macomia</option>
+                <option id="34">Mecúfi</option>
+                <option id="35">Meluco</option>
+                <option id="36">Metuge</option>
+                <option id="37">Mocímboa da Praia</option>
+                <option id="38">Montepuez</option>
+                <option id="39">Mueda</option>
+                <option id="40">Muidumbe</option>
+                <option id="41">Namuno</option>
+                <option id="42">Nangade</option>
+                <option id="43">Palma</option>
+                <option id="44">Pemba</option>
+                <option id="45">Quissanga</option>
+            </select>
+        </div>
+        <div class="sel_dist" id="divprov_4">
+            <select id="prov_4">
+                <option id="46">Angoche</option>
+                <option id="47">Eráti</option>
+                <option id="48">Ilha de Moçambique</option>
+                <option id="49">Lalaua</option>
+                <option id="50">Larde</option>
+                <option id="51">Liúpo</option>
+                <option id="52">Malema</option>
+                <option id="53">Meconta</option>
+                <option id="54">Mecubúri</option>
+                <option id="55">Memba</option>
+                <option id="56">Mogincual</option>
+                <option id="57">Mogovolas</option>
+                <option id="58">Moma</option>
+                <option id="59">Monapo</option>
+                <option id="60">Mossuril</option>
+                <option id="61">Muecate</option>
+                <option id="62">Murrupula</option>
+                <option id="63">Nacala-a-Velha</option>
+                <option id="64">Nacala</option>
+                <option id="65">Nacarôa</option>
+                <option id="66">Rapale</option>
+                <option id="67">Ribáuè</option>
+                <option id="68">Nampula</option>
+            </select>
+        </div>
+        <div class="sel_dist" id="divprov_5">
+            <select id="prov_5">
+                <option id="69">Angónia</option>
+                <option id="70">Cahora-Bassa</option>
+                <option id="71">Changara</option>
+                <option id="72">Chifunde</option>
+                <option id="73">Chiúta</option>
+                <option id="74">Dôa</option>
+                <option id="75">Macanga</option>
+                <option id="76">Mágoè</option>
+                <option id="77">Marara</option>
+                <option id="78">Marávia</option>
+                <option id="79">Moatize</option>
+                <option id="80">Mutarara</option>
+                <option id="81">Tete</option>
+                <option id="82">Tsangano</option>
+                <option id="83">Zumbo</option>
+            </select>
+        </div>
+        <div class="sel_dist" id="divprov_6">
+            <select id="prov_6">
+                <option id="84">Alto Molócuè</option>
+                <option id="85">Chinde</option>
+                <option id="86">Derre</option>
+                <option id="87">Gilé</option>
+                <option id="88">Gurué</option>
+                <option id="89">Ile</option>
+                <option id="90">Inhassunge</option>
+                <option id="91">Lugela</option>
+                <option id="92">Maganja da Costa</option>
+                <option id="93">Milange</option>
+                <option id="94">Mocuba</option>
+                <option id="95">Mocubela</option>
+                <option id="96">Molumbo</option>
+                <option id="97">Mopeia</option>
+                <option id="98">Morrumbala</option>
+                <option id="99">Mulevala</option>
+                <option id="100">Namacurra</option>
+                <option id="101">Namarroi</option>
+                <option id="102">Nicoadala</option>
+                <option id="103">Pebane</option>
+                <option id="104">Quelimane</option>
+                <option id="105">Luabo</option>
+            </select>
+        </div>
+        <div class="sel_dist" id="divprov_7">
+            <select id="prov_7">
+                <option id="106">Báruè</option>
+                <option id="107">Chimoio</option>
+                <option id="108">Gondola</option>
+                <option id="109">Guro</option>
+                <option id="110">Macate</option>
+                <option id="111">Machaze</option>
+                <option id="112">Macossa</option>
+                <option id="113">Manica</option>
+                <option id="114">Mossurize</option>
+                <option id="115">Sussundenga</option>
+                <option id="116">Tambara</option>
+                <option id="117">Vanduzi</option>
+            </select>
+        </div>
+        <div class="sel_dist" id="divprov_8">
+            <select id="prov_8">
+                <option id="118">Beira</option>
+                <option id="119">Búzi</option>
+                <option id="120">Caia</option>
+                <option id="121">Chemba</option>
+                <option id="122">Cheringoma</option>
+                <option id="123">Chibabava</option>
+                <option id="124">Dondo</option>
+                <option id="125">Gorongosa</option>
+                <option id="126">Machanga</option>
+                <option id="127">Marínguè</option>
+                <option id="128">Marromeu</option>
+                <option id="129">Muanza</option>
+                <option id="130">Nhamatanda</option>
+            </select>
+        </div>
+        <div class="sel_dist" id="divprov_9">
+            <select id="prov_9">
+                <option id="131">Bilene</option>
+                <option id="132">Chibuto</option>
+                <option id="133">Chicualacuala</option>
+                <option id="134">Chigubo</option>
+                <option id="135">Chókwè</option>
+                <option id="136">Guijá</option>
+                <option id="137">Mabalane</option>
+                <option id="138">Mandlakazi</option>
+                <option id="139">Massangena</option>
+                <option id="140">Massingir</option>
+                <option id="141">Xai-Xai</option>
+                <option id="142">Mapai</option>
+                <option id="143">Chongoene</option>
+                <option id="144">Limpopo</option>
+            </select>
+        </div>
+        <div class="sel_dist" id="divprov_10">
+            <select id="prov_10">
+                <option id="145">Funhalouro</option>
+                <option id="146">Govuro</option>
+                <option id="147">Homoíne</option>
+                <option id="148">Inhambane</option>
+                <option id="149">Inharrime</option>
+                <option id="150">Inhassoro</option>
+                <option id="151">Jangamo</option>
+                <option id="152">Mabote</option>
+                <option id="153">Massinga</option>
+                <option id="154">Maxixe</option>
+                <option id="155">Morrumbene</option>
+                <option id="156">Panda</option>
+                <option id="157">Vilankulo</option>
+                <option id="158">Zavala</option>
+            </select>
+        </div>
+        <div class="sel_dist" id="divprov_11">
+            <select id="prov_11">
+                <option id="159">KaMphumo</option>
+                <option id="160">Nlhamankulu</option>
+                <option id="161">KaMaxaqueni</option>
+                <option id="162">KaMavota</option>
+                <option id="163">KaMubukwana</option>
+                <option id="164">KaTembe</option>
+                <option id="165">KaNyaka</option>
+            </select>
+        </div>
+        <div class="sel_dist" id="divprov_12">
+            <select id="prov_12">
+                <option id="166">Boane</option>
+                <option id="167">Magude</option>
+                <option id="168">Manhiça</option>
+                <option id="169">Marracuene</option>
+                <option id="170">Matola</option>
+                <option id="171">Matutuíne</option>
+                <option id="172">Moamba</option>
+                <option id="173">Namaacha</option>
+            </select>
+        </div>
+
+        <label for="inp_nomeus">Nome da unidade de saúde</label>
+        <input type="text" id="inp_nomeus" />
+        <button id="bu_grava_us" class="ui-btn ui-btn-inline">Gravar</button>
+
+	<p>Informações gravadas</p>
+	<div id="div_grava_us" class="div_gravado">
+	</div>
+
+	</div>
+	<div data-role="footer">
+		<a data-role="button" href="#page01" data-transition="flip" data-theme="a">home</a>
+	</div>
+</div>
+<!-- ------------------ page 03 ------------------ -->
+<div id="page03" data-role="page">
+	<div data-role="header">
+		Inquérito de urgência
+	</div>
+	<div role="main" class="ui-content">
+	
+       <table>
+            <tbody>
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Que avaliação faz do pessoal que realiza o processo de admissão:
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					Em termos globais como avalia o desempenho do pessoal de secretaria e recepção em termos de cortesia, disponibilidade e competência.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_1_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_1" id="urgencia_1_5" value="5"/>
+    						<label for="urgencia_1_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_1" id="urgencia_1_4" value="4"/>
+    						<label for="urgencia_1_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_1" id="urgencia_1_3" value="3"/>
+    						<label for="urgencia_1_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_1" id="urgencia_1_2" value="2" checked="checked"/>
+    						<label for="urgencia_1_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_1" id="urgencia_1_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Tempo de espera de admissão ao serviço de urgência.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_2_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_2" id="urgencia_2_5" value="5"/>
+    						<label for="urgencia_2_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_2" id="urgencia_2_4" value="4"/>
+    						<label for="urgencia_2_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_2" id="urgencia_2_3" value="3"/>
+    						<label for="urgencia_2_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_2" id="urgencia_2_2" value="2" checked="checked"/>
+    						<label for="urgencia_2_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_2" id="urgencia_2_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Tempo de espera de admissão a triagem.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_3_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_3" id="urgencia_3_5" value="5"/>
+    						<label for="urgencia_3_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_3" id="urgencia_3_4" value="4"/>
+    						<label for="urgencia_3_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_3" id="urgencia_3_3" value="3"/>
+    						<label for="urgencia_3_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_3" id="urgencia_3_2" value="2" checked="checked"/>
+    						<label for="urgencia_3_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_3" id="urgencia_3_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Tempo de espera de atendimento médico.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_4_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_4" id="urgencia_4_5" value="5"/>
+    						<label for="urgencia_4_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_4" id="urgencia_4_4" value="4"/>
+    						<label for="urgencia_4_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_4" id="urgencia_4_3" value="3"/>
+    						<label for="urgencia_4_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_4" id="urgencia_4_2" value="2" checked="checked"/>
+    						<label for="urgencia_4_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_4" id="urgencia_4_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Facilidade em marcar uma consulta o exame complementar após a alta.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_5_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_5" id="urgencia_5_5" value="5"/>
+    						<label for="urgencia_5_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_5" id="urgencia_5_4" value="4"/>
+    						<label for="urgencia_5_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_5" id="urgencia_5_3" value="3"/>
+    						<label for="urgencia_5_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_5" id="urgencia_5_2" value="2" checked="checked"/>
+    						<label for="urgencia_5_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_5" id="urgencia_5_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Que avaliação faz dos médicos que seguiram no seu episódio de urgência relativamente a:
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					Atenção e disponibilidade demostrada pelos médicos. (disponibilidade para o ouvir, frequência com que verificaram a evolução do seu estado de saúde)
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_6_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_6" id="urgencia_6_5" value="5"/>
+    						<label for="urgencia_6_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_6" id="urgencia_6_4" value="4"/>
+    						<label for="urgencia_6_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_6" id="urgencia_6_3" value="3"/>
+    						<label for="urgencia_6_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_6" id="urgencia_6_2" value="2" checked="checked"/>
+    						<label for="urgencia_6_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_6" id="urgencia_6_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					A forma como o pessoal médico lhe explicou a sua doença, sintomas e tratamento.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_7_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_7" id="urgencia_7_5" value="5"/>
+    						<label for="urgencia_7_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_7" id="urgencia_7_4" value="4"/>
+    						<label for="urgencia_7_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_7" id="urgencia_7_3" value="3"/>
+    						<label for="urgencia_7_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_7" id="urgencia_7_2" value="2" checked="checked"/>
+    						<label for="urgencia_7_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_7" id="urgencia_7_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					As explicações dadas pelos médicos sobre os medicamentos prescritos e os exames realizados.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_8_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_8" id="urgencia_8_5" value="5"/>
+    						<label for="urgencia_8_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_8" id="urgencia_8_4" value="4"/>
+    						<label for="urgencia_8_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_8" id="urgencia_8_3" value="3"/>
+    						<label for="urgencia_8_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_8" id="urgencia_8_2" value="2" checked="checked"/>
+    						<label for="urgencia_8_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_8" id="urgencia_8_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Profissionalismo dos médicos.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_9_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_9" id="urgencia_9_5" value="5"/>
+    						<label for="urgencia_9_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_9" id="urgencia_9_4" value="4"/>
+    						<label for="urgencia_9_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_9" id="urgencia_9_3" value="3"/>
+    						<label for="urgencia_9_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_9" id="urgencia_9_2" value="2" checked="checked"/>
+    						<label for="urgencia_9_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_9" id="urgencia_9_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Em termos globais como avalia o desempenho do pessoal médico.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_10_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_10" id="urgencia_10_5" value="5"/>
+    						<label for="urgencia_10_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_10" id="urgencia_10_4" value="4"/>
+    						<label for="urgencia_10_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_10" id="urgencia_10_3" value="3"/>
+    						<label for="urgencia_10_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_10" id="urgencia_10_2" value="2" checked="checked"/>
+    						<label for="urgencia_10_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_10" id="urgencia_10_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Comunicação com enfermeiros:
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					Atenção e disponibilidade dos enfermeiros.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_11_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_11" id="urgencia_11_5" value="5"/>
+    						<label for="urgencia_11_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_11" id="urgencia_11_4" value="4"/>
+    						<label for="urgencia_11_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_11" id="urgencia_11_3" value="3"/>
+    						<label for="urgencia_11_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_11" id="urgencia_11_2" value="2" checked="checked"/>
+    						<label for="urgencia_11_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_11" id="urgencia_11_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Rapidez de reposta do serviço de enfermagem.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_12_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_12" id="urgencia_12_5" value="5"/>
+    						<label for="urgencia_12_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_12" id="urgencia_12_4" value="4"/>
+    						<label for="urgencia_12_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_12" id="urgencia_12_3" value="3"/>
+    						<label for="urgencia_12_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_12" id="urgencia_12_2" value="2" checked="checked"/>
+    						<label for="urgencia_12_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_12" id="urgencia_12_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Profissionalismo dos enfermeiros. (disponibilidade para o ouvir, frequência com que verificaram a evolução do seu estado de saúde)
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_13_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_13" id="urgencia_13_5" value="5"/>
+    						<label for="urgencia_13_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_13" id="urgencia_13_4" value="4"/>
+    						<label for="urgencia_13_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_13" id="urgencia_13_3" value="3"/>
+    						<label for="urgencia_13_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_13" id="urgencia_13_2" value="2" checked="checked"/>
+    						<label for="urgencia_13_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_13" id="urgencia_13_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Em termos globais como avalia o desempenho do pessoal de enfermagem.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_14_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_14" id="urgencia_14_5" value="5"/>
+    						<label for="urgencia_14_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_14" id="urgencia_14_4" value="4"/>
+    						<label for="urgencia_14_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_14" id="urgencia_14_3" value="3"/>
+    						<label for="urgencia_14_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_14" id="urgencia_14_2" value="2" checked="checked"/>
+    						<label for="urgencia_14_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_14" id="urgencia_14_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Que avaliação faz da sua equipa de saúde (medico/enfermeiro) em relação a:
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					Forma como lhe foi prestado alivio rápido dos seus sintomas.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_15_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_15" id="urgencia_15_5" value="5"/>
+    						<label for="urgencia_15_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_15" id="urgencia_15_4" value="4"/>
+    						<label for="urgencia_15_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_15" id="urgencia_15_3" value="3"/>
+    						<label for="urgencia_15_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_15" id="urgencia_15_2" value="2" checked="checked"/>
+    						<label for="urgencia_15_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_15" id="urgencia_15_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Ajuda que recebeu para enfrentar os problemas emocionais relacionados com o estado de saúde.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_16_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_16" id="urgencia_16_5" value="5"/>
+    						<label for="urgencia_16_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_16" id="urgencia_16_4" value="4"/>
+    						<label for="urgencia_16_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_16" id="urgencia_16_3" value="3"/>
+    						<label for="urgencia_16_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_16" id="urgencia_16_2" value="2" checked="checked"/>
+    						<label for="urgencia_16_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_16" id="urgencia_16_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Confidencialidade de seu processo.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_17_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_17" id="urgencia_17_5" value="5"/>
+    						<label for="urgencia_17_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_17" id="urgencia_17_4" value="4"/>
+    						<label for="urgencia_17_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_17" id="urgencia_17_3" value="3"/>
+    						<label for="urgencia_17_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_17" id="urgencia_17_2" value="2" checked="checked"/>
+    						<label for="urgencia_17_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_17" id="urgencia_17_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Que avaliação faz do restante pessoal que se relacionaram consigo em relação a:
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					Pessoal auxiliar (que faz a limpeza e o apoio durante o seu internamento).
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_18_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_18" id="urgencia_18_5" value="5"/>
+    						<label for="urgencia_18_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_18" id="urgencia_18_4" value="4"/>
+    						<label for="urgencia_18_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_18" id="urgencia_18_3" value="3"/>
+    						<label for="urgencia_18_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_18" id="urgencia_18_2" value="2" checked="checked"/>
+    						<label for="urgencia_18_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_18" id="urgencia_18_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Pessoal de voluntariado que o ajudou durante o internamento.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_19_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_19" id="urgencia_19_5" value="5"/>
+    						<label for="urgencia_19_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_19" id="urgencia_19_4" value="4"/>
+    						<label for="urgencia_19_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_19" id="urgencia_19_3" value="3"/>
+    						<label for="urgencia_19_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_19" id="urgencia_19_2" value="2" checked="checked"/>
+    						<label for="urgencia_19_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_19" id="urgencia_19_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Em relação as suas instalações, como classificaria em termos de:
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					Limpeza e higiene das instalações. (enfermarias, instalações sanitárias, salas de refeições, corredores).
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_20_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_20" id="urgencia_20_5" value="5"/>
+    						<label for="urgencia_20_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_20" id="urgencia_20_4" value="4"/>
+    						<label for="urgencia_20_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_20" id="urgencia_20_3" value="3"/>
+    						<label for="urgencia_20_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_20" id="urgencia_20_2" value="2" checked="checked"/>
+    						<label for="urgencia_20_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_20" id="urgencia_20_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Conforto e comodidade das enfermarias. (temperatura ambiente, ruído, comodidade das camas, estado de conservação das instalações)
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_21_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_21" id="urgencia_21_5" value="5"/>
+    						<label for="urgencia_21_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_21" id="urgencia_21_4" value="4"/>
+    						<label for="urgencia_21_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_21" id="urgencia_21_3" value="3"/>
+    						<label for="urgencia_21_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_21" id="urgencia_21_2" value="2" checked="checked"/>
+    						<label for="urgencia_21_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_21" id="urgencia_21_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Protecção da privacidade das enfermarias.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_22_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_22" id="urgencia_22_5" value="5"/>
+    						<label for="urgencia_22_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_22" id="urgencia_22_4" value="4"/>
+    						<label for="urgencia_22_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_22" id="urgencia_22_3" value="3"/>
+    						<label for="urgencia_22_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_22" id="urgencia_22_2" value="2" checked="checked"/>
+    						<label for="urgencia_22_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_22" id="urgencia_22_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Qualidade global das instalações do serviço.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_23_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_23" id="urgencia_23_5" value="5"/>
+    						<label for="urgencia_23_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_23" id="urgencia_23_4" value="4"/>
+    						<label for="urgencia_23_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_23" id="urgencia_23_3" value="3"/>
+    						<label for="urgencia_23_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_23" id="urgencia_23_2" value="2" checked="checked"/>
+    						<label for="urgencia_23_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_23" id="urgencia_23_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Satisfação Global:
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					Avaliação global do serviço de Urgência.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="urgencia_24_5">Excellente</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_24" id="urgencia_24_5" value="5"/>
+    						<label for="urgencia_24_4">Muito bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_24" id="urgencia_24_4" value="4"/>
+    						<label for="urgencia_24_3">Bom</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_24" id="urgencia_24_3" value="3"/>
+    						<label for="urgencia_24_2">Regular</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_24" id="urgencia_24_2" value="2" checked="checked"/>
+    						<label for="urgencia_24_1">Mau</label>
+    						<input type="radio" class="inp_urgencia" name="urgencia_24" id="urgencia_24_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td colspan="2">
+    					Que melhoramentos sugere no sentido de aumentar a qualidade dos cuidados prestados por este serviço:
+                    </td>
+                <tr>
+                </tr>
+                    <td colspan="2">
+    					<textarea id="urgencia_25_t"></textarea>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+            </tbody>
+        </table>
+
+        <div style="height:140px;"></div>
+        <button id="bu_grava_urgencia" class="ui-btn ui-btn-inline">Gravar</button>
+    	<p>Informações gravadas</p>
+    	<div id="div_grava_urgencia" class="div_gravado">
+    	</div>
+	
+	</div>
+	<div data-role="footer">
+		<a data-role="button" href="#page01" data-transition="flip" data-theme="a">home</a>
+	</div>
+</div>
+<!-- ------------------ page 04 ------------------ -->
+<div id="page04" data-role="page">
+	<div data-role="header">
+		Inquérito de satisfação
+	</div>
+	<div role="main" class="ui-content">
+
+       <table>
+            <tbody>
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Avaliação do serviço de aceitação/recepção, triagem, Laboratório e RX
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					Como avalia o atendimento na Aceitação/ recepção em termos de cortesia?
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_1_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_1" id="satisfacao_1_5" value="5"/>
+    						<label for="satisfacao_1_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_1" id="satisfacao_1_4" value="4"/>
+    						<label for="satisfacao_1_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_1" id="satisfacao_1_3" value="3"/>
+    						<label for="satisfacao_1_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_1" id="satisfacao_1_2" value="2" checked="checked"/>
+    						<label for="satisfacao_1_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_1" id="satisfacao_1_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Tempo de espera de abrir boletim na Aceitação/recepção ao serviço de urgência?
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_2_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_2" id="satisfacao_2_5" value="5"/>
+    						<label for="satisfacao_2_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_2" id="satisfacao_2_4" value="4"/>
+    						<label for="satisfacao_2_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_2" id="satisfacao_2_3" value="3"/>
+    						<label for="satisfacao_2_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_2" id="satisfacao_2_2" value="2" checked="checked"/>
+    						<label for="satisfacao_2_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_2" id="satisfacao_2_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Tempo de espera de admissão a triagem.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_3_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_3" id="satisfacao_3_5" value="5"/>
+    						<label for="satisfacao_3_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_3" id="satisfacao_3_4" value="4"/>
+    						<label for="satisfacao_3_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_3" id="satisfacao_3_3" value="3"/>
+    						<label for="satisfacao_3_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_3" id="satisfacao_3_2" value="2" checked="checked"/>
+    						<label for="satisfacao_3_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_3" id="satisfacao_3_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Tempo de espera de atendimento médico.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_4_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_4" id="satisfacao_4_5" value="5"/>
+    						<label for="satisfacao_4_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_4" id="satisfacao_4_4" value="4"/>
+    						<label for="satisfacao_4_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_4" id="satisfacao_4_3" value="3"/>
+    						<label for="satisfacao_4_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_4" id="satisfacao_4_2" value="2" checked="checked"/>
+    						<label for="satisfacao_4_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_4" id="satisfacao_4_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Facilidade de fazer exame no Laboratório/RX de urgência a alta.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_5_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_5" id="satisfacao_5_5" value="5"/>
+    						<label for="satisfacao_5_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_5" id="satisfacao_5_4" value="4"/>
+    						<label for="satisfacao_5_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_5" id="satisfacao_5_3" value="3"/>
+    						<label for="satisfacao_5_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_5" id="satisfacao_5_2" value="2" checked="checked"/>
+    						<label for="satisfacao_5_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_5" id="satisfacao_5_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Avaliação do atendimento clinico:
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					O médico presta atenção as preocupações do doente (queixas,..)?
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_6_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_6" id="satisfacao_6_5" value="5"/>
+    						<label for="satisfacao_6_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_6" id="satisfacao_6_4" value="4"/>
+    						<label for="satisfacao_6_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_6" id="satisfacao_6_3" value="3"/>
+    						<label for="satisfacao_6_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_6" id="satisfacao_6_2" value="2" checked="checked"/>
+    						<label for="satisfacao_6_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_6" id="satisfacao_6_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					O médico explica correctamente a sua doença e o tratamento a fazer?
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_7_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_7" id="satisfacao_7_5" value="5"/>
+    						<label for="satisfacao_7_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_7" id="satisfacao_7_4" value="4"/>
+    						<label for="satisfacao_7_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_7" id="satisfacao_7_3" value="3"/>
+    						<label for="satisfacao_7_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_7" id="satisfacao_7_2" value="2" checked="checked"/>
+    						<label for="satisfacao_7_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_7" id="satisfacao_7_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					As explicações dadas pelos médicos sobre os medicamentos prescritos e os exames realizados.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_8_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_8" id="satisfacao_8_5" value="5"/>
+    						<label for="satisfacao_8_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_8" id="satisfacao_8_4" value="4"/>
+    						<label for="satisfacao_8_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_8" id="satisfacao_8_3" value="3"/>
+    						<label for="satisfacao_8_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_8" id="satisfacao_8_2" value="2" checked="checked"/>
+    						<label for="satisfacao_8_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_8" id="satisfacao_8_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Profissionalismo dos médicos.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_9_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_9" id="satisfacao_9_5" value="5"/>
+    						<label for="satisfacao_9_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_9" id="satisfacao_9_4" value="4"/>
+    						<label for="satisfacao_9_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_9" id="satisfacao_9_3" value="3"/>
+    						<label for="satisfacao_9_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_9" id="satisfacao_9_2" value="2" checked="checked"/>
+    						<label for="satisfacao_9_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_9" id="satisfacao_9_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Em termos globais como avalia o desempenho do pessoal médico.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_10_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_10" id="satisfacao_10_5" value="5"/>
+    						<label for="satisfacao_10_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_10" id="satisfacao_10_4" value="4"/>
+    						<label for="satisfacao_10_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_10" id="satisfacao_10_3" value="3"/>
+    						<label for="satisfacao_10_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_10" id="satisfacao_10_2" value="2" checked="checked"/>
+    						<label for="satisfacao_10_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_10" id="satisfacao_10_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Avaliação dos Cuidados de Enfermagem
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					Atenção e disponibilidade dos enfermeiros.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_11_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_11" id="satisfacao_11_5" value="5"/>
+    						<label for="satisfacao_11_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_11" id="satisfacao_11_4" value="4"/>
+    						<label for="satisfacao_11_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_11" id="satisfacao_11_3" value="3"/>
+    						<label for="satisfacao_11_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_11" id="satisfacao_11_2" value="2" checked="checked"/>
+    						<label for="satisfacao_11_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_11" id="satisfacao_11_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Rapidez de reposta do serviço de enfermagem.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_12_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_12" id="satisfacao_12_5" value="5"/>
+    						<label for="satisfacao_12_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_12" id="satisfacao_12_4" value="4"/>
+    						<label for="satisfacao_12_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_12" id="satisfacao_12_3" value="3"/>
+    						<label for="satisfacao_12_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_12" id="satisfacao_12_2" value="2" checked="checked"/>
+    						<label for="satisfacao_12_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_12" id="satisfacao_12_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Profissionalismo dos enfermeiros. (disponibilidade para o ouvir, frequência com que verificaram a evolução do seu estado de saúde)
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_13_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_13" id="satisfacao_13_5" value="5"/>
+    						<label for="satisfacao_13_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_13" id="satisfacao_13_4" value="4"/>
+    						<label for="satisfacao_13_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_13" id="satisfacao_13_3" value="3"/>
+    						<label for="satisfacao_13_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_13" id="satisfacao_13_2" value="2" checked="checked"/>
+    						<label for="satisfacao_13_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_13" id="satisfacao_13_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Em termos globais como avalia o desempenho do pessoal de enfermagem.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_14_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_14" id="satisfacao_14_5" value="5"/>
+    						<label for="satisfacao_14_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_14" id="satisfacao_14_4" value="4"/>
+    						<label for="satisfacao_14_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_14" id="satisfacao_14_3" value="3"/>
+    						<label for="satisfacao_14_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_14" id="satisfacao_14_2" value="2" checked="checked"/>
+    						<label for="satisfacao_14_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_14" id="satisfacao_14_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Avaliação de Agentes de Serviços:
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					Forma como lhe foi prestado alivio rápido da sua doença.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_15_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_15" id="satisfacao_15_5" value="5"/>
+    						<label for="satisfacao_15_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_15" id="satisfacao_15_4" value="4"/>
+    						<label for="satisfacao_15_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_15" id="satisfacao_15_3" value="3"/>
+    						<label for="satisfacao_15_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_15" id="satisfacao_15_2" value="2" checked="checked"/>
+    						<label for="satisfacao_15_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_15" id="satisfacao_15_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Ajuda que recebeu para enfrentar os problemas emocionais relacionados com o estado de saúde.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_16_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_16" id="satisfacao_16_5" value="5"/>
+    						<label for="satisfacao_16_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_16" id="satisfacao_16_4" value="4"/>
+    						<label for="satisfacao_16_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_16" id="satisfacao_16_3" value="3"/>
+    						<label for="satisfacao_16_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_16" id="satisfacao_16_2" value="2" checked="checked"/>
+    						<label for="satisfacao_16_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_16" id="satisfacao_16_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Confidencialidade de seu processo.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_17_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_17" id="satisfacao_17_5" value="5"/>
+    						<label for="satisfacao_17_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_17" id="satisfacao_17_4" value="4"/>
+    						<label for="satisfacao_17_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_17" id="satisfacao_17_3" value="3"/>
+    						<label for="satisfacao_17_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_17" id="satisfacao_17_2" value="2" checked="checked"/>
+    						<label for="satisfacao_17_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_17" id="satisfacao_17_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Avaliação do pessoal da Sala de observações
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					Pessoal serventuário (que faz a limpeza e o apoio durante o seu internamento).
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_18_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_18" id="satisfacao_18_5" value="5"/>
+    						<label for="satisfacao_18_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_18" id="satisfacao_18_4" value="4"/>
+    						<label for="satisfacao_18_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_18" id="satisfacao_18_3" value="3"/>
+    						<label for="satisfacao_18_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_18" id="satisfacao_18_2" value="2" checked="checked"/>
+    						<label for="satisfacao_18_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_18" id="satisfacao_18_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Pessoal de voluntariado que o ajudou durante o internamento.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_19_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_19" id="satisfacao_19_5" value="5"/>
+    						<label for="satisfacao_19_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_19" id="satisfacao_19_4" value="4"/>
+    						<label for="satisfacao_19_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_19" id="satisfacao_19_3" value="3"/>
+    						<label for="satisfacao_19_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_19" id="satisfacao_19_2" value="2" checked="checked"/>
+    						<label for="satisfacao_19_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_19" id="satisfacao_19_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Avaliação das roupas e mobiliários (cama, mesinhas…)
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					Limpeza e higiene das instalações. (enfermarias, instalações sanitárias, salas de refeições, corredores).
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_20_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_20" id="satisfacao_20_5" value="5"/>
+    						<label for="satisfacao_20_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_20" id="satisfacao_20_4" value="4"/>
+    						<label for="satisfacao_20_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_20" id="satisfacao_20_3" value="3"/>
+    						<label for="satisfacao_20_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_20" id="satisfacao_20_2" value="2" checked="checked"/>
+    						<label for="satisfacao_20_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_20" id="satisfacao_20_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Conforto e comodidade das enfermarias. (temperatura ambiente, ruído, comodidade das camas, estado de conservação das instalações)
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_21_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_21" id="satisfacao_21_5" value="5"/>
+    						<label for="satisfacao_21_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_21" id="satisfacao_21_4" value="4"/>
+    						<label for="satisfacao_21_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_21" id="satisfacao_21_3" value="3"/>
+    						<label for="satisfacao_21_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_21" id="satisfacao_21_2" value="2" checked="checked"/>
+    						<label for="satisfacao_21_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_21" id="satisfacao_21_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Protecção da privacidade das enfermarias.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_22_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_22" id="satisfacao_22_5" value="5"/>
+    						<label for="satisfacao_22_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_22" id="satisfacao_22_4" value="4"/>
+    						<label for="satisfacao_22_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_22" id="satisfacao_22_3" value="3"/>
+    						<label for="satisfacao_22_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_22" id="satisfacao_22_2" value="2" checked="checked"/>
+    						<label for="satisfacao_22_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_22" id="satisfacao_22_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Qualidade global das instalações do serviço.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_23_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_23" id="satisfacao_23_5" value="5"/>
+    						<label for="satisfacao_23_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_23" id="satisfacao_23_4" value="4"/>
+    						<label for="satisfacao_23_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_23" id="satisfacao_23_3" value="3"/>
+    						<label for="satisfacao_23_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_23" id="satisfacao_23_2" value="2" checked="checked"/>
+    						<label for="satisfacao_23_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_23" id="satisfacao_23_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Avaliação geral de serviço de urgência
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					Avaliação global do serviço de Urgência.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="satisfacao_24_5">Excellente</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_24" id="satisfacao_24_5" value="5"/>
+    						<label for="satisfacao_24_4">Muito bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_24" id="satisfacao_24_4" value="4"/>
+    						<label for="satisfacao_24_3">Bom</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_24" id="satisfacao_24_3" value="3"/>
+    						<label for="satisfacao_24_2">Regular</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_24" id="satisfacao_24_2" value="2" checked="checked"/>
+    						<label for="satisfacao_24_1">Mau</label>
+    						<input type="radio" class="inp_satisfacao" name="satisfacao_24" id="satisfacao_24_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td colspan="2">
+    					Sugestões
+                    </td>
+                <tr>
+                </tr>
+                    <td colspan="2">
+    					<textarea id="satisfacao_25_t"></textarea>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+            </tbody>
+        </table>
+
+        <div style="height:140px;"></div>
+        <button id="bu_grava_satisfacao" class="ui-btn ui-btn-inline">Gravar</button>
+    	<p>Informações gravadas</p>
+    	<div id="div_grava_satisfacao" class="div_gravado">
+    	</div>
+	
+	</div>
+	<div data-role="footer">
+		<a data-role="button" href="#page01" data-transition="flip" data-theme="a">home</a>
+	</div>
+</div>
+<!-- ------------------ page 05 ------------------ -->
+<div id="page05" data-role="page">
+	<div data-role="header">
+		Inquérito de serviços
+	</div>
+	<div role="main" class="ui-content">
+
+       <table>
+            <tbody>
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Que avaliação faz do pessoal que realiza o processo de admissão:
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					Em termos globais como avalia o desempenho do pessoal de secretaria e recepção em termos de cortesia, disponibilidade e competência.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_1_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_1" id="servico_1_5" value="5"/>
+    						<label for="servico_1_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_1" id="servico_1_4" value="4"/>
+    						<label for="servico_1_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_1" id="servico_1_3" value="3"/>
+    						<label for="servico_1_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_1" id="servico_1_2" value="2" checked="checked"/>
+    						<label for="servico_1_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_1" id="servico_1_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Esclarecimento sobre lós horários das visitas e outras recomendações.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_2_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_2" id="servico_2_5" value="5"/>
+    						<label for="servico_2_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_2" id="servico_2_4" value="4"/>
+    						<label for="servico_2_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_2" id="servico_2_3" value="3"/>
+    						<label for="servico_2_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_2" id="servico_2_2" value="2" checked="checked"/>
+    						<label for="servico_2_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_2" id="servico_2_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Possibilidade em falar com um médico e enfermeiro.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_3_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_3" id="servico_3_5" value="5"/>
+    						<label for="servico_3_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_3" id="servico_3_4" value="4"/>
+    						<label for="servico_3_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_3" id="servico_3_3" value="3"/>
+    						<label for="servico_3_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_3" id="servico_3_2" value="2" checked="checked"/>
+    						<label for="servico_3_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_3" id="servico_3_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Comunicação com os médicos:
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					Atenção e disponibilidade demostrada pelos médicos. (disponibilidade para o ouvir, frequência com que verificaram a evolução do seu estado de saúde)
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_6_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_6" id="servico_6_5" value="5"/>
+    						<label for="servico_6_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_6" id="servico_6_4" value="4"/>
+    						<label for="servico_6_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_6" id="servico_6_3" value="3"/>
+    						<label for="servico_6_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_6" id="servico_6_2" value="2" checked="checked"/>
+    						<label for="servico_6_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_6" id="servico_6_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					A forma como os médicos lhe explicaram a sua doença, sintomas e tratamento.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_7_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_7" id="servico_7_5" value="5"/>
+    						<label for="servico_7_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_7" id="servico_7_4" value="4"/>
+    						<label for="servico_7_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_7" id="servico_7_3" value="3"/>
+    						<label for="servico_7_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_7" id="servico_7_2" value="2" checked="checked"/>
+    						<label for="servico_7_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_7" id="servico_7_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					As explicações dadas pelos médicos sobre os medicamentos prescritos e os exames realizados.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_8_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_8" id="servico_8_5" value="5"/>
+    						<label for="servico_8_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_8" id="servico_8_4" value="4"/>
+    						<label for="servico_8_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_8" id="servico_8_3" value="3"/>
+    						<label for="servico_8_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_8" id="servico_8_2" value="2" checked="checked"/>
+    						<label for="servico_8_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_8" id="servico_8_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Profissionalismo dos médicos.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_9_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_9" id="servico_9_5" value="5"/>
+    						<label for="servico_9_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_9" id="servico_9_4" value="4"/>
+    						<label for="servico_9_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_9" id="servico_9_3" value="3"/>
+    						<label for="servico_9_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_9" id="servico_9_2" value="2" checked="checked"/>
+    						<label for="servico_9_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_9" id="servico_9_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Em termos globais como avalia o desempenho do pessoal médico.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_10_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_10" id="servico_10_5" value="5"/>
+    						<label for="servico_10_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_10" id="servico_10_4" value="4"/>
+    						<label for="servico_10_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_10" id="servico_10_3" value="3"/>
+    						<label for="servico_10_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_10" id="servico_10_2" value="2" checked="checked"/>
+    						<label for="servico_10_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_10" id="servico_10_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Comunicação com enfermeiros:
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					Atenção e disponibilidade dos enfermeiros.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_11_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_11" id="servico_11_5" value="5"/>
+    						<label for="servico_11_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_11" id="servico_11_4" value="4"/>
+    						<label for="servico_11_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_11" id="servico_11_3" value="3"/>
+    						<label for="servico_11_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_11" id="servico_11_2" value="2" checked="checked"/>
+    						<label for="servico_11_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_11" id="servico_11_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Rapidez de reposta do serviço de enfermagem.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_12_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_12" id="servico_12_5" value="5"/>
+    						<label for="servico_12_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_12" id="servico_12_4" value="4"/>
+    						<label for="servico_12_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_12" id="servico_12_3" value="3"/>
+    						<label for="servico_12_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_12" id="servico_12_2" value="2" checked="checked"/>
+    						<label for="servico_12_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_12" id="servico_12_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Profissionalismo dos enfermeiros. (disponibilidade para o ouvir, frequência com que verificaram a evolução do seu estado de saúde)
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_13_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_13" id="servico_13_5" value="5"/>
+    						<label for="servico_13_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_13" id="servico_13_4" value="4"/>
+    						<label for="servico_13_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_13" id="servico_13_3" value="3"/>
+    						<label for="servico_13_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_13" id="servico_13_2" value="2" checked="checked"/>
+    						<label for="servico_13_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_13" id="servico_13_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Em termos globais como avalia o desempenho do pessoal de enfermagem.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_14_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_14" id="servico_14_5" value="5"/>
+    						<label for="servico_14_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_14" id="servico_14_4" value="4"/>
+    						<label for="servico_14_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_14" id="servico_14_3" value="3"/>
+    						<label for="servico_14_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_14" id="servico_14_2" value="2" checked="checked"/>
+    						<label for="servico_14_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_14" id="servico_14_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Que avaliação faz da sua equipa de saúde (medico/enfermeiro) em relação a:
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					Forma como lhe foi prestado alivio rápido dos seus sintomas.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_15_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_15" id="servico_15_5" value="5"/>
+    						<label for="servico_15_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_15" id="servico_15_4" value="4"/>
+    						<label for="servico_15_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_15" id="servico_15_3" value="3"/>
+    						<label for="servico_15_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_15" id="servico_15_2" value="2" checked="checked"/>
+    						<label for="servico_15_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_15" id="servico_15_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Ajuda que recebeu para enfrentar os problemas emocionais relacionados com o estado de saúde.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_16_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_16" id="servico_16_5" value="5"/>
+    						<label for="servico_16_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_16" id="servico_16_4" value="4"/>
+    						<label for="servico_16_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_16" id="servico_16_3" value="3"/>
+    						<label for="servico_16_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_16" id="servico_16_2" value="2" checked="checked"/>
+    						<label for="servico_16_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_16" id="servico_16_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Confidencialidade de seu processo.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_17_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_17" id="servico_17_5" value="5"/>
+    						<label for="servico_17_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_17" id="servico_17_4" value="4"/>
+    						<label for="servico_17_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_17" id="servico_17_3" value="3"/>
+    						<label for="servico_17_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_17" id="servico_17_2" value="2" checked="checked"/>
+    						<label for="servico_17_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_17" id="servico_17_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Que avaliação faz  do restante pessoal que se relacionaram consigo em relação a:
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					Pessoal auxiliar (que faz a limpeza, da a alimentação e o apoio durante o seu internamento).
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_18_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_18" id="servico_18_5" value="5"/>
+    						<label for="servico_18_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_18" id="servico_18_4" value="4"/>
+    						<label for="servico_18_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_18" id="servico_18_3" value="3"/>
+    						<label for="servico_18_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_18" id="servico_18_2" value="2" checked="checked"/>
+    						<label for="servico_18_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_18" id="servico_18_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Pessoal de voluntariado que o ajudou durante o internamento.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_19_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_19" id="servico_19_5" value="5"/>
+    						<label for="servico_19_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_19" id="servico_19_4" value="4"/>
+    						<label for="servico_19_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_19" id="servico_19_3" value="3"/>
+    						<label for="servico_19_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_19" id="servico_19_2" value="2" checked="checked"/>
+    						<label for="servico_19_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_19" id="servico_19_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Que avaliação faz  em relação a alimentação:
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					Limpeza e higiene das instalações. (enfermarias, instalações sanitárias, salas de refeições, corredores).
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_20_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_20" id="servico_20_5" value="5"/>
+    						<label for="servico_20_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_20" id="servico_20_4" value="4"/>
+    						<label for="servico_20_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_20" id="servico_20_3" value="3"/>
+    						<label for="servico_20_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_20" id="servico_20_2" value="2" checked="checked"/>
+    						<label for="servico_20_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_20" id="servico_20_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Conforto e comodidade das enfermarias. (temperatura ambiente, ruído, comodidade das camas, estado de conservação das instalações)
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_21_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_21" id="servico_21_5" value="5"/>
+    						<label for="servico_21_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_21" id="servico_21_4" value="4"/>
+    						<label for="servico_21_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_21" id="servico_21_3" value="3"/>
+    						<label for="servico_21_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_21" id="servico_21_2" value="2" checked="checked"/>
+    						<label for="servico_21_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_21" id="servico_21_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Protecção da privacidade das enfermarias.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_22_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_22" id="servico_22_5" value="5"/>
+    						<label for="servico_22_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_22" id="servico_22_4" value="4"/>
+    						<label for="servico_22_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_22" id="servico_22_3" value="3"/>
+    						<label for="servico_22_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_22" id="servico_22_2" value="2" checked="checked"/>
+    						<label for="servico_22_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_22" id="servico_22_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+    					Qualidade global das instalações do serviço.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_23_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_23" id="servico_23_5" value="5"/>
+    						<label for="servico_23_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_23" id="servico_23_4" value="4"/>
+    						<label for="servico_23_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_23" id="servico_23_3" value="3"/>
+    						<label for="servico_23_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_23" id="servico_23_2" value="2" checked="checked"/>
+    						<label for="servico_23_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_23" id="servico_23_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td class="tdhead" colspan="2">
+    					Satisfação Global:
+                    </td>
+                <tr>
+                </tr>
+                    <td>
+    					Avaliação global do serviço.
+                    </td>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="servico_24_5">Excellente</label>
+    						<input type="radio" class="inp_servico" name="servico_24" id="servico_24_5" value="5"/>
+    						<label for="servico_24_4">Muito bom</label>
+    						<input type="radio" class="inp_servico" name="servico_24" id="servico_24_4" value="4"/>
+    						<label for="servico_24_3">Bom</label>
+    						<input type="radio" class="inp_servico" name="servico_24" id="servico_24_3" value="3"/>
+    						<label for="servico_24_2">Regular</label>
+    						<input type="radio" class="inp_servico" name="servico_24" id="servico_24_2" value="2" checked="checked"/>
+    						<label for="servico_24_1">Mau</label>
+    						<input type="radio" class="inp_servico" name="servico_24" id="servico_24_1" value="1"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td colspan="2">
+    					Que melhoramentos sugere no sentido de aumentar a qualidade dos cuidados prestados por este serviço:
+                    </td>
+                <tr>
+                </tr>
+                    <td colspan="2">
+    					<textarea id="servico_25_t"></textarea>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+            </tbody>
+        </table>
+
+        <div style="height:140px;"></div>
+        <button id="bu_grava_servico" class="ui-btn ui-btn-inline">Gravar</button>
+    	<p>Informações gravadas</p>
+    	<div id="div_grava_servico" class="div_gravado">
+    	</div>
+	
+	</div>
+	<div data-role="footer">
+		<a data-role="button" href="#page01" data-transition="flip" data-theme="a">home</a>
+	</div>
+</div>
+<!-- ------------------ page 06 ------------------ -->
+<div id="page06" data-role="page">
+	<div data-role="header">
+		Cadastro
+	</div>
+	<div role="main" class="ui-content">
+        <fieldset data-role="controlgroup" data-type="horizontal">
+            <legend>Sexo</legend>
+	        <label for="bu_sexo_m">Masculino</label>
+	        <input type="radio" class="inp_sexo" id="bu_sexo_m" name="radiosexo" value="M" checked="checked"/>
+	        <label for="bu_sexo_f">Feminino</label>
+	        <input type="radio" class="inp_sexo" id="bu_sexo_f" name="radiosexo" value="F"/>
+        </fieldset>
+        <label for="inp_datanasc">Data de nascimento</label>
+        <input type="date" id="inp_datanasc" />
+        <button id="bu_grava_cadastro" class="ui-btn ui-btn-inline">Gravar</button>
+    	<p>Informações gravadas</p>
+    	<div id="div_grava_cadastro" class="div_gravado">
+	    </div>
+
+	</div>
+	<div data-role="footer">
+		<a data-role="button" href="#page01" data-transition="flip" data-theme="a">home</a>
+	</div>
+</div>
+<!-- ------------------ page 07 ------------------ -->
+<div id="page07" data-role="page">
+	<div data-role="header">
+		Instruções
+	</div>
+	<div role="main" class="ui-content">
+	</div>
+	<div data-role="footer">
+		<a data-role="button" href="#page01" data-transition="flip" data-theme="a">home</a>
+	</div>
+</div>
+<!-- ------------------ page 08 ------------------ -->
+<div id="page08" data-role="page">
+	<div data-role="header">
+		Formulário de contacto
+	</div>
+	<div role="main" class="ui-content">
+	    Envie uma mensagem com sugestões acerca desta aplicação
+	    <textarea id="text_contacto"></textarea>
+        <div style="height:140px;"></div>
+        <button id="bu_envie_contacto" class="ui-btn ui-btn-inline">Enviar</button>
+    	<p>Informações gravadas</p>
+	    <div id="div_grava_contacto" class="div_gravado">
+	</div>
+
+	    <div id="debug"></div>
+	</div>
+	<div data-role="footer">
+		<a data-role="button" href="#page01" data-transition="flip" data-theme="a">home</a>
+	</div>
+</div>
+<!-- ----------------------------------------------- -->
+</body>
+</html>

@@ -1,0 +1,30 @@
+body {
+    font-family:Arial;
+}
+#logo {
+    display: block;
+    margin: auto;
+    width:80%;
+}
+[data-role="header"] {
+    text-align:center;
+    padding:8px;
+}
+[data-role="footer"] {
+    text-align:center;
+}
+#bu_cadastro {
+    margin: auto;
+}
+.ui-btn {
+    height:30px;
+}
+.tdhead {
+    background-color:lightgrey;
+    font-weight:bold;
+}
+.div_gravado {
+    white-space:pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
+}
