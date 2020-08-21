@@ -1,12 +1,10 @@
 $(document).on('pagecreate', function (evt,data) {
- 
-    var serv = 'https://sis-ma.in/php/recl.php';
+
+    var serv = 'http://192.168.0.106/';
     
     var did = app.GetDeviceId();
-    var uem = app.GetUser();
     var mod = app.GetModel();
     var osv = app.GetOSVersion();
-    var acs = app.GetAccounts();
     
     var idade_minima = 21;
     
@@ -15,6 +13,7 @@ $(document).on('pagecreate', function (evt,data) {
     var err_us = 'Por favor indiche a unidade de saúde (US).';
 
     $('#div_grava_cadastro').html( app.LoadText( 'cadastro', '' ) );
+    $('#div_grava_us').html( app.LoadText( 'us', '' ) );
     $('#div_grava_urgencia').html( app.LoadText( 'urgencia', '' ) );
     $('#div_grava_satisfacao').html( app.LoadText( 'satisfacao', '' ) );
     $('#div_grava_servico').html( app.LoadText( 'servico', '' ) );
@@ -137,6 +136,17 @@ $(document).on('pagecreate', function (evt,data) {
         $('#div_grava_servico').html( str_to_send );
         app.SaveText('servico',str_to_send);
     });
+    
+    
+     $('#logo').dblclick(function() {
+        var msg =
+            'Device Id = ' + did + '\n'+
+            'Model = ' + mod + '\n'+
+            'OS version = ' + osv + '\n';
+        app.Alert(msg);
+    });
+
+    
     
     
     //--------------------------------------------------------------------------
