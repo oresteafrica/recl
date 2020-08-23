@@ -1,0 +1,49 @@
+<html lang = "pt">
+<head>
+    <title>Reclamação</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta charset="utf-8">
+	<meta http-equiv = "content-language" content = "pt">
+</head>
+<body>
+<div id="page10" data-role="page">
+	<div data-role="header">
+		Ficha de Reclamação
+	</div>
+	<div role="main" class="ui-content">
+              <p>
+                Este impresso destina-se a formular uma reclamação junto de Gabinete de Utente, com garantias de total confidencialidade, contra um trabalhador de saúde. Este formulário não é obrigatório, mas se o utilizar, auxiliar-nos-á a responder de forma mais rápida à sua reclamação.
+            </p>
+      <table>
+            <tbody>
+                <!-- ---------------------------------------------------- -->
+                <tr>
+                    <td>
+						O reclamante e o doente é a mesma pessoa?
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+    					<fieldset data-role="controlgroup">
+    						<label for="reclamacao_rd_1">Sim</label>
+    						<input type="radio" name="reclamacao_rd" id="reclamacao_rd_1" value="1" checked="checked" />
+    						<label for="reclamacao_rd_0">Não</label>
+    						<input type="radio" name="reclamacao_rd" id="reclamacao_rd_0" value="0"/>
+    					</fieldset>
+                    </td>
+                </tr>
+                <!-- ---------------------------------------------------- -->
+        </tbody>
+        </table>
+        <div style="height:140px;"></div>
+        <button id="bu_grava_reclamacao" class="ui-btn ui-btn-inline">Gravar</button>
+    	<p>Informações gravadas</p>
+    	<div id="div_grava_reclamacao" class="div_gravado">
+    	</div>
+	</div>
+	<div data-role="footer">
+		<a data-role="button" href="recl.html" data-transition="flip">home</a>
+	</div>
+</div>
+</body>
+</html>

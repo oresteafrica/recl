@@ -11,6 +11,18 @@ $(document).on('pagecreate', function (evt,data) {
     var agora = dt.getHours() + ':' + dt.getMinutes();
     
     var idade_minima = 21;
+    var rad = 1;
+
+    // ini geo
+    if (app.IsLocationEnabled('GPS')) {
+        var loc = app.CreateLocator('GPS');
+    } else {
+        var loc = app.CreateLocator('Network');
+    }
+    mapgeo(loc);
+    var lat = app.LoadNumber('lat',0);
+    var lon = app.LoadNumber('lon',0);
+    // end geo
     
     var err_cadastro = 'Por favor cadastra-se para aceder.';
     var err_idade = 'A sua idade não permite cadastrar.';
@@ -22,6 +34,8 @@ $(document).on('pagecreate', function (evt,data) {
     $('#div_grava_urgencia').html( app.LoadText( 'urgencia', 'nenhuma' ) );
     $('#div_grava_satisfacao').html( app.LoadText( 'satisfacao', 'nenhuma' ) );
     $('#div_grava_servico').html( app.LoadText( 'servico', 'nenhuma' ) );
+    $('#div_grava_reclamacao').html( app.LoadText( 'reclamacao', 'nenhuma' ) );
+    $('#div_grava_denuncia').html( app.LoadText( 'denuncia', 'nenhuma' ) );
     
     var str_us_chosen = app.LoadText( 'us', '' );
     
@@ -35,24 +49,10 @@ $(document).on('pagecreate', function (evt,data) {
     $('#denuncia_data').val( dia );
     $('#denuncia_hora').val( agora );
 
-    $('#a_urgencia').click(function(){
+    $('.a_forms').click(function(){
         if ( ! app.LoadBoolean( 'cadastro_ok', false ) ) {app.Alert(err_cadastro); return false;}
         if ( ! app.LoadBoolean( 'idade_ok', false ) ) {app.Alert(err_idade); return false;}
-        // check us
-        return true;
-    });
-
-    $('#a_satisfacao').click(function(){
-        if ( ! app.LoadBoolean( 'cadastro_ok', false ) ) {app.Alert(err_cadastro); return false;}
-        if ( ! app.LoadBoolean( 'idade_ok', false ) ) {app.Alert(err_idade); return false;}
-        // check us
-        return true;
-    });
-
-    $('#a_servico').click(function(){
-        if ( ! app.LoadBoolean( 'cadastro_ok', false ) ) {app.Alert(err_cadastro); return false;}
-        if ( ! app.LoadBoolean( 'idade_ok', false ) ) {app.Alert(err_idade); return false;}
-        // check us
+        if ( ! app.LoadBoolean( 'us_ok', false ) ) {app.Alert(err_us); return false;}
         return true;
     });
 
@@ -166,7 +166,49 @@ $(document).on('pagecreate', function (evt,data) {
         return age;
     }
     //--------------------------------------------------------------------------
-
+    function mapgeo() {
+        loc.SetOnChange(function(data) {
+            $('#mapgeo').empty();
+            lat = data.latitude;
+            lon = data.longitude;
+            acc = data.accuracy;
+            pro = data.provider;
+            app.SaveNumber('lat',lat);
+            app.SaveNumber('lon',lon);
+    	    var map, vectorLayer, tile;
+            var centre_here = ol.proj.fromLonLat([lon,lat]);
+	        vectorLayer = new ol.layer.Vector({
+	            source: new ol.source.Vector({ projection: 'EPSG:4326'}),
+                style: [
+		            new ol.style.Style({
+		                stroke: new ol.style.Stroke({
+			                color: 'blue',
+			                width: 3
+		                })
+		            })
+	            ]
+	        });
+            tile = new ol.layer.Tile({ source: new ol.source.OSM() });
+            tile.getSource().on('tileloadstart', function() { $('#mapinf').text('Carregamento mapa') });
+            tile.getSource().on('tileloadend', function() { $('#mapinf').text('Raio '+rad+' Km') });
+            tile.getSource().on('tileloaderror', function() { $('#mapinf').text('Erro de carregamento mapa') });
+	        map = new ol.Map({
+                layers: [tile, vectorLayer],
+			    target: 'mapgeo'
+		    });
+		    
+            var layerPoint = new ol.layer.Vector({
+            source: new ol.source.Vector({
+                features: [new ol.Feature({geometry: new ol.geom.Point( centre_here )})]})});
+            map.addLayer(layerPoint);
+		    
+    	    vectorLayer.getSource().addFeature(new ol.Feature(new ol.geom.Circle(centre_here, rad * 1000)));
+    	    map.getView().fit(vectorLayer.getSource().getExtent(), map.getSize());		
+            loc.Stop();
+        }); // loc.SetOnChange
+        loc.SetRate(60); // seconds
+	    loc.Start();
+    }
     //--------------------------------------------------------------------------
     
 
