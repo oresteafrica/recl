@@ -4,7 +4,7 @@ body {
 #logo {
     display: block;
     margin: auto;
-    width:80%;
+    width:60%;
 }
 [data-role="header"] {
     text-align:center;
@@ -27,4 +27,8 @@ body {
     white-space:pre-wrap;
     word-break: break-all;
     word-wrap: break-word;
+}
+.darkp {
+    background-color:black;
+    color:white;
 }

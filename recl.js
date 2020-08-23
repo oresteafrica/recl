@@ -6,17 +6,34 @@ $(document).on('pagecreate', function (evt,data) {
     var mod = app.GetModel();
     var osv = app.GetOSVersion();
     
+    var dt = new Date();
+    var dia = dt.getDate() + '/' + dt.getMonth()+1 + '/' + dt.getFullYear();
+    var agora = dt.getHours() + ':' + dt.getMinutes();
+    
     var idade_minima = 21;
     
     var err_cadastro = 'Por favor cadastra-se para aceder.';
     var err_idade = 'A sua idade não permite cadastrar.';
     var err_us = 'Por favor indiche a unidade de saúde (US).';
 
-    $('#div_grava_cadastro').html( app.LoadText( 'cadastro', '' ) );
-    $('#div_grava_us').html( app.LoadText( 'us', '' ) );
-    $('#div_grava_urgencia').html( app.LoadText( 'urgencia', '' ) );
-    $('#div_grava_satisfacao').html( app.LoadText( 'satisfacao', '' ) );
-    $('#div_grava_servico').html( app.LoadText( 'servico', '' ) );
+    $('#div_grava_cadastro').html( app.LoadText( 'cadastro', 'nenhuma' ) );
+    $('#div_grava_us').html( app.LoadText( 'us', 'nenhuma' ) );
+
+    $('#div_grava_urgencia').html( app.LoadText( 'urgencia', 'nenhuma' ) );
+    $('#div_grava_satisfacao').html( app.LoadText( 'satisfacao', 'nenhuma' ) );
+    $('#div_grava_servico').html( app.LoadText( 'servico', 'nenhuma' ) );
+    
+    var str_us_chosen = app.LoadText( 'us', '' );
+    
+    if (str_us_chosen.length > 20) {
+        us_chosen = JSON.parse(str_us_chosen);
+        $('#denuncia_provus').val(us_chosen[1]);
+        $('#denuncia_distrus').val(us_chosen[3]);
+        $('#denuncia_nomeus').val(us_chosen[4]);
+    }
+
+    $('#denuncia_data').val( dia );
+    $('#denuncia_hora').val( agora );
 
     $('#a_urgencia').click(function(){
         if ( ! app.LoadBoolean( 'cadastro_ok', false ) ) {app.Alert(err_cadastro); return false;}
@@ -88,11 +105,11 @@ $(document).on('pagecreate', function (evt,data) {
         var nomeus = $('#inp_nomeus').val();
         if (nomeus.length < 5) {app.Alert(err_us); return false;}
         vals.push( n_prov );
-        vals.push( $('#sel_prov').find(":selected").text() );
+        vals.push( '"' + $('#sel_prov').find(":selected").text() + '"' );
         vals.push( $('#prov_'+n_prov).find(":selected").attr('id') );
-        vals.push( $('#prov_'+n_prov).find(":selected").text() );
-        vals.push( nomeus );
-		var str_to_send = '{us=['+vals.join(',')+']}';
+        vals.push( '"' + $('#prov_'+n_prov).find(":selected").text() + '"' );
+        vals.push( '"' + nomeus + '"' );
+		var str_to_send = '[ '+vals.join(', ')+' ]';
         $('#div_grava_us').html( str_to_send );
         app.SaveText('us',str_to_send);
         app.SaveBoolean('us_ok', true);
@@ -136,19 +153,7 @@ $(document).on('pagecreate', function (evt,data) {
         $('#div_grava_servico').html( str_to_send );
         app.SaveText('servico',str_to_send);
     });
-    
-    
-     $('#logo').dblclick(function() {
-        var msg =
-            'Device Id = ' + did + '\n'+
-            'Model = ' + mod + '\n'+
-            'OS version = ' + osv + '\n';
-        app.Alert(msg);
-    });
-
-    
-    
-    
+   
     //--------------------------------------------------------------------------
     function getAge(dateString) {
         var today = new Date();
@@ -160,6 +165,8 @@ $(document).on('pagecreate', function (evt,data) {
         }
         return age;
     }
+    //--------------------------------------------------------------------------
+
     //--------------------------------------------------------------------------
     
 
