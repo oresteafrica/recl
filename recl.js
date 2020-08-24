@@ -7,7 +7,7 @@ $(document).on('pagecreate', function (evt,data) {
     var osv = app.GetOSVersion();
     
     var dt = new Date();
-    var dia = dt.getDate() + '/' + dt.getMonth()+1 + '/' + dt.getFullYear();
+    var dia = dt.getDate() + '/' + (dt.getMonth()+1)/1 + '/' + dt.getFullYear();
     var agora = dt.getHours() + ':' + dt.getMinutes();
     
     var idade_minima = 21;
@@ -48,6 +48,7 @@ $(document).on('pagecreate', function (evt,data) {
 
     $('#denuncia_data').val( dia );
     $('#denuncia_hora').val( agora );
+    $('#reclamacao_i_data').val( dia );
 
     $('.a_forms').click(function(){
         if ( ! app.LoadBoolean( 'cadastro_ok', false ) ) {app.Alert(err_cadastro); return false;}

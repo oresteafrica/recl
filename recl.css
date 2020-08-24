@@ -13,15 +13,12 @@ body {
 [data-role="footer"] {
     text-align:center;
 }
-#bu_cadastro {
-    margin: auto;
-}
-.ui-btn {
-    height:30px;
-}
 .tdhead {
     background-color:lightgrey;
     font-weight:bold;
+    padding-top:4px;
+    padding-bottom:4px;
+    text-align:center;
 }
 .div_gravado {
     white-space:pre-wrap;
