@@ -5,7 +5,7 @@ $(document).on('pagecreate', function (evt,data) {
     var did = app.GetDeviceId();
     var mod = app.GetModel();
     var osv = app.GetOSVersion();
-    
+
     var dt = new Date();
     var dia = dt.getDate() + '/' + (dt.getMonth()+1)/1 + '/' + dt.getFullYear();
     var agora = dt.getHours() + ':' + dt.getMinutes();
@@ -13,16 +13,11 @@ $(document).on('pagecreate', function (evt,data) {
     var idade_minima = 21;
     var rad = 1;
 
-    // ini geo
     if (app.IsLocationEnabled('GPS')) {
         var loc = app.CreateLocator('GPS');
     } else {
         var loc = app.CreateLocator('Network');
     }
-    mapgeo(loc);
-    var lat = app.LoadNumber('lat',0);
-    var lon = app.LoadNumber('lon',0);
-    // end geo
     
     var err_cadastro = 'Por favor cadastra-se para aceder.';
     var err_idade = 'A sua idade não permite cadastrar.';
@@ -154,6 +149,11 @@ $(document).on('pagecreate', function (evt,data) {
         $('#div_grava_servico').html( str_to_send );
         app.SaveText('servico',str_to_send);
     });
+    
+    $('#a_rede').click(function() {
+        mapgeo(loc);
+        return true;
+    });
    
     //--------------------------------------------------------------------------
     function getAge(dateString) {
@@ -169,45 +169,47 @@ $(document).on('pagecreate', function (evt,data) {
     //--------------------------------------------------------------------------
     function mapgeo() {
         loc.SetOnChange(function(data) {
-            $('#mapgeo').empty();
+            
             lat = data.latitude;
             lon = data.longitude;
             acc = data.accuracy;
             pro = data.provider;
             app.SaveNumber('lat',lat);
             app.SaveNumber('lon',lon);
-    	    var map, vectorLayer, tile;
-            var centre_here = ol.proj.fromLonLat([lon,lat]);
-	        vectorLayer = new ol.layer.Vector({
-	            source: new ol.source.Vector({ projection: 'EPSG:4326'}),
-                style: [
-		            new ol.style.Style({
-		                stroke: new ol.style.Stroke({
-			                color: 'blue',
-			                width: 3
-		                })
-		            })
-	            ]
-	        });
-            tile = new ol.layer.Tile({ source: new ol.source.OSM() });
-            tile.getSource().on('tileloadstart', function() { $('#mapinf').text('Carregamento mapa') });
-            tile.getSource().on('tileloadend', function() { $('#mapinf').text('Raio '+rad+' Km') });
-            tile.getSource().on('tileloaderror', function() { $('#mapinf').text('Erro de carregamento mapa') });
-	        map = new ol.Map({
-                layers: [tile, vectorLayer],
-			    target: 'mapgeo'
-		    });
-		    
-            var layerPoint = new ol.layer.Vector({
-            source: new ol.source.Vector({
-                features: [new ol.Feature({geometry: new ol.geom.Point( centre_here )})]})});
-            map.addLayer(layerPoint);
-		    
-    	    vectorLayer.getSource().addFeature(new ol.Feature(new ol.geom.Circle(centre_here, rad * 1000)));
-    	    map.getView().fit(vectorLayer.getSource().getExtent(), map.getSize());		
+
+        	if (map == undefined) {
+                var container = L.DomUtil.get('mapgeo');
+                if(container != null){
+                    container._leaflet_id = null;
+                }
+        	    var map = L.map('mapgeo').setView([lat, lon], 14);
+            } else {
+                map.off();
+                map.remove();
+            }
+
+
+        	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		        id: 'mapbox/streets-v11',
+		        tileSize: 512,
+		        zoomOffset: -1
+	        }).addTo(map);
+
+	        L.circle([lat, lon], 1000, {
+		        color: 'blue',
+		        fill: false
+	        }).addTo(map);
+
+        	L.circle([lat, lon], 10, {
+		        color: 'red',
+		        fillColor: '#f03',
+		        fillOpacity: 0.5
+	        }).addTo(map);
+
             loc.Stop();
+
         }); // loc.SetOnChange
-        loc.SetRate(60); // seconds
+        loc.SetRate(180); // seconds
 	    loc.Start();
     }
     //--------------------------------------------------------------------------
