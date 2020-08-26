@@ -44,7 +44,8 @@
 	    <div style="height:20px;"></div>
         <a href="#page02" class="ui-btn" data-transition="flip">Utilidade Pública</a>
         <a href="#page03" class="ui-btn" data-transition="flip">Serviços de Saúde</a>
-        <a href="#page04" class="ui-btn" data-transition="flip">Unidade de Saúde</a>
+        <a href="#" class="ui-btn" data-transition="flip">Bibliografia para Saúde</a>
+        <a href="#" class="ui-btn" data-transition="flip">Para o provedor</a>
         <a href="#page06" class="ui-btn" data-transition="flip">Cadastro</a>
         <a href="#page07" class="ui-btn" data-transition="flip">Instruções</a>
         <a href="#page08" class="ui-btn" data-transition="flip">Contacto</a>
@@ -86,14 +87,17 @@
 	<div role="main" class="ui-content">
         <p class="darkp">Rede Sanitária Nacional</p>
         <ul data-role="listview">
-            <li><a id="a_rede" href="#page05" data-transition="flip">Rede Sanitária Nacional</a></li>
+            <li><a href="#page04" class="ui-btn" data-transition="flip">Unidades Sanitária na lista</a></li>
+            <li><a id="a_rede" href="#page05" class="ui-btn" data-transition="flip">Unidades Sanitária no mapa</a></li>
         </ul>
 	    <div style="height:20px;"></div>
         <p class="darkp">Avaliação do atendimento ao utente</p>
         <ul data-role="listview">
+<!--
             <li><a id="a_urgencia" class="a_forms" href="urgencia.html" data-transition="flip">Avaliação do serviço de urgência</a></li>
             <li><a id="a_servico" class="a_forms" href="servico.html" data-transition="flip">Avaliação do serviço</a></li>
-            <li><a id="a_satisfacao" class="a_forms" href="satisfacao.html" data-transition="flip">Avaliação da satisfação</a></li>
+-->
+            <li><a id="a_satisfacao" class="a_forms" href="satisfacao.html" data-transition="flip">Avaliação da satisfação do utente</a></li>
             <li><a id="a_reclamacao" class="a_forms" href="reclamacao.html" data-transition="flip">Reclamações e Sugestões</a></li>
             <li><a id="a_denuncia" class="a_forms" href="denuncia.html" data-transition="flip">Denúncias</a></li>
         </ul>
@@ -342,6 +346,7 @@
 	</div>
 	<div data-role="footer">
 		<a data-role="button" href="#page01" data-transition="flip">home</a>
+		<a data-role="button" href="#page03" data-transition="flip">precedente</a>
 	</div>
 <</div>
 <!-- ------------------ page 05 ------------------ -->
@@ -351,9 +356,11 @@
 	</div>
 	<div role="main" class="ui-content">
 	    <div id="mapgeo"></div>
+	    <div id="mapinf"></div>
 	</div>
 	<div data-role="footer">
 		<a data-role="button" href="#page01" data-transition="flip">home</a>
+		<a data-role="button" href="#page03" data-transition="flip">precedente</a>
 	</div>
 </div>
 <!-- ------------------ page 06 ------------------ -->

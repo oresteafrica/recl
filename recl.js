@@ -188,12 +188,11 @@ $(document).on('pagecreate', function (evt,data) {
                 map.remove();
             }
 
-
-        	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        	var TileL = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 		        id: 'mapbox/streets-v11',
 		        tileSize: 512,
 		        zoomOffset: -1
-	        }).addTo(map);
+            }).addTo(map);
 
 	        L.circle([lat, lon], 1000, {
 		        color: 'blue',
@@ -205,7 +204,7 @@ $(document).on('pagecreate', function (evt,data) {
 		        fillColor: '#f03',
 		        fillOpacity: 0.5
 	        }).addTo(map);
-
+            
             loc.Stop();
 
         }); // loc.SetOnChange
