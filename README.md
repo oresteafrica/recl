@@ -13,5 +13,5 @@ Pode [baixar](http://sis-ma.in/recl/apk/index.php) o ficheiro APK de demonstraç
 
 Siga primeiro as [instruções](https://pt.wikihow.com/Instalar-Arquivos-APK-no-Android)  para instalar a app através do ficheiro APK
 
-Pode observar o [video de apresentaçao](https://youtu.be/URGQkVcfc6Y) 
+
 
