@@ -24,7 +24,7 @@
                 </tr>
                 <tr>
                     <td>
-    					<fieldset data-role="controlgroup">
+    					<fieldset id="reclamacao_rd_field" data-role="controlgroup" data-type="horizontal">
     						<label for="reclamacao_rd_1">Sim</label>
     						<input type="radio" name="reclamacao_rd" id="reclamacao_rd_1" value="1" checked="checked" />
     						<label for="reclamacao_rd_0">Não</label>
@@ -33,91 +33,91 @@
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->
-                <tr>
+                <tr class="reclamacao_r_tr">
                     <td class="tdhead">
                         Reclamante
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->
-                <tr>
+                <tr class="reclamacao_r_tr">
                     <td>
                         Relação com o doente (família, mandatário, etc..)
                     </td>
                 </tr>
-                <tr>
+                <tr class="reclamacao_r_tr">
                     <td>
-    					<input type="text" class="inp_reclamacao" id="reclamacao_r_relacao" />
+    					<input type="text" class="txt_reclamacao" id="reclamacao_r_relacao" />
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->
-                <tr>
+                <tr class="reclamacao_r_tr">
                     <td>
                         Nome completo
                     </td>
                 </tr>
-                <tr>
+                <tr class="reclamacao_r_tr">
                     <td>
-    					<input type="text" class="inp_reclamacao" id="reclamacao_r_nome" />
+    					<input type="text" class="txt_reclamacao" id="reclamacao_r_nome" />
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->
-                <tr>
+                <tr class="reclamacao_r_tr">
                     <td>
                         Sexo
                     </td>
                 </tr>
-                <tr>
+                <tr class="reclamacao_r_tr">
                     <td>
-                        <fieldset data-role="controlgroup" data-type="horizontal">
+                        <fieldset id="reclamacao_r_sexo_field" data-role="controlgroup" data-type="horizontal">
 	                        <label for="reclamacao_r_sexo_m">Masculino</label>
-	                        <input type="radio" class="inp_sexo" id="reclamacao_r_sexo_m" name="reclamacao_r_radiosexo" value="M" checked="checked"/>
+	                        <input type="radio" id="reclamacao_r_sexo_m" name="reclamacao_r_radiosexo" value="M" checked="checked"/>
 	                        <label for="reclamacao_r_sexo_f">Feminino</label>
-	                        <input type="radio" class="inp_sexo" id="reclamacao_r_sexo_f" name="reclamacao_r_radiosexo" value="F"/>
+	                        <input type="radio" id="reclamacao_r_sexo_f" name="reclamacao_r_radiosexo" value="F"/>
                         </fieldset>
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->
-                <tr>
+                <tr class="reclamacao_r_tr">
                     <td>
                         Data de nascimento
                     </td>
                 </tr>
-                <tr>
+                <tr class="reclamacao_r_tr">
                     <td>
-    					<input type="date" class="inp_reclamacao" id="reclamacao_r_nasc" />
+    					<input type="date" class="date_reclamacao" id="reclamacao_r_nasc" />
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->
-                <tr>
+                <tr class="reclamacao_r_tr">
                     <td>
                         Residência
                     </td>
                 </tr>
-                <tr>
+                <tr class="reclamacao_r_tr">
                     <td>
-    					<input type="text" class="inp_reclamacao" id="reclamacao_r_resid" />
+    					<input type="text" class="txt_reclamacao" id="reclamacao_r_resid" />
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->
-                <tr>
+                <tr class="reclamacao_r_tr">
                     <td>
                         Telefone
                     </td>
                 </tr>
-                <tr>
+                <tr class="reclamacao_r_tr">
                     <td>
-    					<input type="tel" class="inp_reclamacao" id="reclamacao_r_tel" />
+    					<input type="tel" class="tel_reclamacao" id="reclamacao_r_tel" />
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->
-                <tr>
+                <tr class="reclamacao_r_tr">
                     <td>
                         email
                     </td>
                 </tr>
-                <tr>
+                <tr class="reclamacao_r_tr">
                     <td>
-    					<input type="email" class="inp_reclamacao" id="reclamacao_r_email" />
+    					<input type="email" class="email_reclamacao" id="reclamacao_r_email" />
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->
@@ -134,7 +134,7 @@
                 </tr>
                 <tr>
                     <td>
-    					<input type="text" class="inp_reclamacao" id="reclamacao_d_nome" />
+    					<input type="text" class="txt_reclamacao" id="reclamacao_d_nome" />
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->
@@ -145,11 +145,11 @@
                 </tr>
                 <tr>
                     <td>
-                        <fieldset data-role="controlgroup" data-type="horizontal">
+                        <fieldset id="reclamacao_d_sexo_field" data-role="controlgroup" data-type="horizontal">
 	                        <label for="reclamacao_d_sexo_m">Masculino</label>
-	                        <input type="radio" class="inp_sexo" id="reclamacao_d_sexo_m" name="reclamacao_d_radiosexo" value="M" checked="checked"/>
+	                        <input type="radio" id="reclamacao_d_sexo_m" name="reclamacao_d_radiosexo" value="M" checked="checked"/>
 	                        <label for="reclamacao_d_sexo_f">Feminino</label>
-	                        <input type="radio" class="inp_sexo" id="reclamacao_d_sexo_f" name="reclamacao_d_radiosexo" value="F"/>
+	                        <input type="radio" id="reclamacao_d_sexo_f" name="reclamacao_d_radiosexo" value="F"/>
                         </fieldset>
                     </td>
                 </tr>
@@ -161,7 +161,7 @@
                 </tr>
                 <tr>
                     <td>
-    					<input type="date" class="inp_reclamacao" id="reclamacao_d_nasc" />
+    					<input type="date" class="date_reclamacao" id="reclamacao_d_nasc" />
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->
@@ -172,7 +172,7 @@
                 </tr>
                 <tr>
                     <td>
-    					<input type="text" class="inp_reclamacao" id="reclamacao_d_resid" />
+    					<input type="text" class="txt_reclamacao" id="reclamacao_d_resid" />
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->
@@ -183,7 +183,7 @@
                 </tr>
                 <tr>
                     <td>
-    					<input type="tel" class="inp_reclamacao" id="reclamacao_d_tel" />
+    					<input type="tel" class="tel_reclamacao" id="reclamacao_d_tel" />
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->
@@ -194,7 +194,7 @@
                 </tr>
                 <tr>
                     <td>
-    					<input type="email" class="inp_reclamacao" id="reclamacao_d_email" />
+    					<input type="email" class="email_reclamacao" id="reclamacao_d_email" />
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->
@@ -211,7 +211,7 @@
                 </tr>
                 <tr>
                     <td>
-    					<input type="number" class="inp_reclamacao" id="reclamacao_t_num" value="1" />
+    					<input type="number" class="num_reclamacao" id="reclamacao_t_num" value="1" />
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->
@@ -222,7 +222,7 @@
                 </tr>
                 <tr>
                     <td>
-    					<textarea class="ta_reclamacao" id="reclamacao_t_info"></textarea>
+    					<textarea class="txt_reclamacao" id="reclamacao_t_info"></textarea>
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->
@@ -239,7 +239,7 @@
                 </tr>
                 <tr>
                     <td>
-    					<textarea class="ta_reclamacao" id="reclamacao_m_info"></textarea>
+    					<textarea class="txt_reclamacao" id="reclamacao_m_info"></textarea>
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->
@@ -250,7 +250,7 @@
                 </tr>
                 <tr>
                     <td>
-    					<textarea class="ta_reclamacao" id="reclamacao_p_info"></textarea>
+    					<textarea class="txt_reclamacao" id="reclamacao_p_info"></textarea>
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->
@@ -261,7 +261,7 @@
                 </tr>
                 <tr>
                     <td>
-    					<textarea class="ta_reclamacao" id="reclamacao_e_info"></textarea>
+    					<textarea class="txt_reclamacao" id="reclamacao_e_info"></textarea>
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->
@@ -284,7 +284,7 @@
                 </tr>
                 <tr>
                     <td>
-    					<input type="text" class="inp_reclamacao" id="reclamacao_i_local" />
+    					<input type="text" class="txt_reclamacao" id="reclamacao_i_local" />
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->
@@ -295,7 +295,7 @@
                 </tr>
                 <tr>
                     <td>
-    					<input type="text" class="inp_reclamacao" id="reclamacao_i_data" readonly="readonly" />
+    					<input type="text" class="txt_reclamacao" id="reclamacao_i_data" readonly="readonly" />
                     </td>
                 </tr>
                 <!-- ---------------------------------------------------- -->

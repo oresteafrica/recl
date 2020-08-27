@@ -65,6 +65,8 @@ $(document).on('pagecreate', function (evt,data) {
         tx_prov = $(this).children(':selected').text();
         $('#divprov_'+id_prov).show();
     });
+
+    // data record format json array [<space>num,<space>"string",<space>boolean<space>]
     
     $('#bu_grava_cadastro').click(function() {
 		var vals = [];
@@ -89,7 +91,8 @@ $(document).on('pagecreate', function (evt,data) {
         } else {
             app.SaveBoolean('idade_ok', false);
         }
-		var str_to_send = '{cadastro=['+vals.join(',')+']}';
+        // [ <space>"sex",<space>dd,<space>mm,<space>yyyy<space>]
+		var str_to_send = '[ '+vals.join(', ')+' ]';
         $('#div_grava_cadastro').html( str_to_send );
         app.SaveText('cadastro',str_to_send);
         app.SaveBoolean('cadastro_ok', true);
@@ -119,7 +122,7 @@ $(document).on('pagecreate', function (evt,data) {
 		    }
 		});
 		var txt_urgencia = $('#urgencia_25_t').val();
-		var str_to_send = '{urgencia=['+vals.join(',')+','+txt_urgencia+']}';
+		var str_to_send = '[ '+vals.join(', ')+', "'+txt_urgencia+'" ]';
         $('#div_grava_urgencia').html( str_to_send );
         app.SaveText('urgencia',str_to_send);
     });
@@ -132,7 +135,7 @@ $(document).on('pagecreate', function (evt,data) {
 		    }
 		});
 		var txt_satisfacao = $('#satisfacao_25_t').val();
-		var str_to_send = '{satisfacao=['+vals.join(',')+','+txt_satisfacao+']}';
+		var str_to_send = '[ '+vals.join(', ')+', "'+txt_satisfacao+'" ]';
         $('#div_grava_satisfacao').html( str_to_send );
         app.SaveText('satisfacao',str_to_send);
     });
@@ -145,16 +148,56 @@ $(document).on('pagecreate', function (evt,data) {
 		    }
 		});
 		var txt_servico = $('#servico_25_t').val();
-		var str_to_send = '{servico=['+vals.join(',')+','+txt_servico+']}';
+		var str_to_send = '[ '+vals.join(', ')+', "'+txt_servico+'" ]';
         $('#div_grava_servico').html( str_to_send );
         app.SaveText('servico',str_to_send);
     });
     
     $('#a_rede').click(function() {
-        mapgeo(loc);
+        mapinit(loc);
         return true;
     });
+
+	$('input[type=radio][name=reclamacao_rd]').change(function() {
+		reclamacao_rd_set(this.value);
+	});
+	
+    $('#bu_grava_reclamacao').click(function() {
+		var vals = [];
+		$('.txt_reclamacao').each(function() {
+		    vals.push( this.id + ': "' + $(this).val() + '"' );
+		});
+		$('.num_reclamacao').each(function() {
+		    vals.push( this.id + ': ' + $(this).val() );
+		});
+		$('.date_reclamacao').each(function() {
+		    var ddia = new Date( $(this).val() );
+            var sdia = ddia.getDate() + '/' + ddia.getMonth() + '/' + ddia.getFullYear();
+		    vals.push( this.id + ': "' + sdia + '"' );
+		});
+		$('.tel_reclamacao').each(function() {
+		    vals.push( this.id + ': "' + $(this).val() + '"' );
+		});
+		$('.email_reclamacao').each(function() {
+		    vals.push( this.id + ': "' + $(this).val() + '"' );
+		});
+
+        vals.push( 'reclamacao_r_sexo_field: ' + $('input[type=radio][reclamacao_r_sexo_field]').val() );
+        vals.push( 'reclamacao_d_sexo_field: ' + $('input[type=radio][reclamacao_d_sexo_field]').val() );
+        
+		var str_to_send = '{ ' + vals.join(', ') + ' }';
+        $('#div_grava_reclamacao').html( str_to_send );
+        app.SaveText('reclamacao',str_to_send);
+    });
    
+    //--------------------------------------------------------------------------
+    function reclamacao_rd_set(rd) {
+		if (rd==1) {
+			$('.reclamacao_r_tr').hide();
+		} else {
+			$('.reclamacao_r_tr').show();
+		}
+    }
     //--------------------------------------------------------------------------
     function getAge(dateString) {
         var today = new Date();
@@ -167,7 +210,8 @@ $(document).on('pagecreate', function (evt,data) {
         return age;
     }
     //--------------------------------------------------------------------------
-    function mapgeo() {
+    function mapinit() {
+        $('#mapinf').html('Carregando o mapa');
         loc.SetOnChange(function(data) {
             
             lat = data.latitude;
@@ -176,6 +220,11 @@ $(document).on('pagecreate', function (evt,data) {
             pro = data.provider;
             app.SaveNumber('lat',lat);
             app.SaveNumber('lon',lon);
+            
+            var tile01 = [
+                'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
+                'mapbox/streets-v11'
+            ];
 
         	if (map == undefined) {
                 var container = L.DomUtil.get('mapgeo');
@@ -188,8 +237,8 @@ $(document).on('pagecreate', function (evt,data) {
                 map.remove();
             }
 
-        	var TileL = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-		        id: 'mapbox/streets-v11',
+        	var TileL = L.tileLayer(tile01[0], {
+		        id: tile01[1],
 		        tileSize: 512,
 		        zoomOffset: -1
             }).addTo(map);
@@ -204,7 +253,11 @@ $(document).on('pagecreate', function (evt,data) {
 		        fillColor: '#f03',
 		        fillOpacity: 0.5
 	        }).addTo(map);
-            
+	        
+            TileL.on('load', function() {
+                $('#mapinf').html('Mapa carregado');
+            });
+
             loc.Stop();
 
         }); // loc.SetOnChange
